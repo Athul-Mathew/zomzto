@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Zomato</title>
+    <link rel="icon" type="image/x-icon"
+        href="data:image/png;base64,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">
+    <link rel="stylesheet" href="zomato.css">
+    <script src="https://kit.fontawesome.com/acdf38a9cb.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section>
+        <div class="card text-bg-dark">
+            <img src="images/ZOMATO-header.webp" class="card-img" alt="">
+            <div class="card-img-overlay">
+                <nav class="navbar navbar-expand-lg bg-body-transparent navbar-inner">
+                    <div class="container-fluid">
+                        <a class="navbar-brand " href="#">Get the app</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse ms-auto" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item get-app">
+                                    <a class="nav-link " href="#">Get the app</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="#">Invester Relations</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Add restaurant</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Log in</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Sign up</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav> 
+                <div class="zomato">
+                    <div class="zomato-inner">
+                    <h1 style="margin-top: 60px; font-weight: 900;">Zomato</h1>
+                    </div>
+                    <h5>Discover the best food & drinks in Malappuram</h5>
+                </div>
+                <div class="container">
+                <div class="d-flex justify-content-center">
+                  <input style="margin-top: 70px" type="text" placeholder="Search for restaurant, cuisine or a dish" class="search-box"/>
+                </div>
+                </div>
+            </div>
+    </section>
+
+    <div class="container" style="margin-top: 20px;">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="images/order-online.webp" alt="Card image cap">
+        <div class="card-body">
+          <h5>Order Online</h5>
+        </div>
+      </div>
+    </div>
+
+    <section id="popular-locations">
+      <div class="container">
+          <div class="d-flex">
+              <p class="popular-heading">Popular locations in and around <span class="font-weight-bold">Malappuram</span></p>
+          </div>
+          <div class="row mt-12">
+              <div class="col-md-12">
+                  <div class="d-flex align-items-center locations-div">
+                      <p class="m-0 ml-3 h6">Malappuram Locality</p>
+                      <i class="fa fa-arrow-right ml-auto mr-4"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <section id="get-zomato-app" style="margin-top: 20px; background-color: rgb(255, 251, 247);">
+      <div class="container">
+          <div class="row">
+              <div class=" get-app-img col-md-6 d-none d-md-flex ">
+                  <img src="images/get-app.webp" class="ml-auto" width="250px" height="275px"/>
+              </div>
+              <div class="col-md-6">
+                  <p class="display-4 font-weight-bold mt-4">Get the Zomato App</p>
+                  <p>We will send you a link, open it on your phone to download the app</p>
+                  <div class="d-flex">
+                      <input type="text" placeholder="Email" class="email-input"/>
+                      <button class="btn btn-danger ml-2">Share App Link</button>
+                  </div>
+                  <p class="mt-3 text-muted">Download app from</p>
+                  <div class="d-flex">
+                      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.tildacdn.com%2Ftild3435-3430-4133-a362-346661346266%2FGoogle-Play-and-Appl.png&f=1&nofb=1" width="350px" height="60px"/>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <!-- Footer -->
+<footer class="text-center text-lg-start text-dark" style="background-color: rgb(248, 248, 248); margin-top: -47px;">
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5" >
+        <h3>Zomato</h3>
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="foot col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+            About Zomato
+            </h6>
+            <p >
+              <a style="text-decoration: none;" href="#!" class="text-reset">Who We Are</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Blog</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Work With Us</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Investor Relations</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Report Fraud</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Contact Us</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class=" foot col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Zomaverse
+            </h6>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Zomato</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Blinkit</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Feeding India</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Hyperpure</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Zomaland</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              For Restaurants
+            </h6>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Partner With us</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Apps For You</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Zomato For Work</a>
+            </p>
+            
+          </div>
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Learn More
+            </h6>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Privacy</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Security</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Terms</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Sitemap</a>
+            </p>
+            <p>
+              <a style="text-decoration: none;" href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Social Links</h6>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-square-instagram"></i>
+            <i class="fa-brands fa-square-twitter"></i>
+            <i class="fa-brands fa-youtube"></i>
+            <i class="fa-brands fa-square-facebook"></i>
+          </div>
+
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="container">
+      <hr>
+    <div class="text-center p-2" style="background-color: rgb(248, 248, 248);">
+      By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. 2008-2023 © Zomato™ Ltd. All rights reserved.
+    </div>
+  </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
